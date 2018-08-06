@@ -264,7 +264,7 @@ int USARTHasData()//skjekker om det blir tastet inn noe i terminalen
 
 void USARTWriteChar(char data) 
 {
-	while (!(UCSR0A & (1 << UDRE0)))//fortsetter så lenge UDRE0 bit er på
+	while (!(UCSR0A & (1 << UDRE0)))//fortsetter sÃ¥ lenge UDRE0 bit er pÃ¥
 	{}
 
 	//Now write the data to USART buffer
@@ -287,7 +287,7 @@ void Setup_timer(void)//setter opp timer interrupt utifra databladet
 	TCCR0B= (1<<CS01)|(1<<CS00); //velger prescaler til 64
 	
 }
-int Button_Check(void)//skjekker om en knapp er trykket på eller ei
+int Button_Check(void)//skjekker om en knapp er trykket pÃ¥ eller ei
 {
 	if(PINA !=0xff)
 	return 1;
