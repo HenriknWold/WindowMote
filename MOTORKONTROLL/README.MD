@@ -1,87 +1,87 @@
-# MOTORSTYRING
+# MOTORCONTROLL
+This is an application which can controll tre DC-motors individualy and change between to diffrent positions.
 
-Her er en applikasjon som styrer tre motorer uavhengig av hverandre, mellom to forskjellige posisjoner.
 
 ## Getting Started
+*  This is a termainal program and all commands take effect through the terminal.
+*  When the user writes the command ‘INJECT X’ will motorX rotate in a forward direction in a spesific amount of milisec. 
+*  When the user writes the command ‘EJECT X’ will motorX rotate in a reverse direction in a spesific amount of milisec.
+*   Parameters:
+    *   Evrey motor has a sett with parameters(all are integers):
+        *   Time the motor will run forward(in milisec, 0-3000): ‘TFWD’
+        *   Time the motor will run reverse(in milisec, 0-3000): ‘TREV’
+        * 	Speed in forward direction(in%,  0 - 100): ‘SFWD’
+        * 	Speed in revese direction (in%,  0 - 100): ‘SREV’
+    *   Evrey parameter is customizeble in the commandline. Syntax(with TFWD as eksample):
+        *	  SETx TFWD=y  // will set TFWD for motor X to y msec
+        *	  Evrey parameter is readable from the cmdLine:
+        *	  GETx TWFD => Will return ‘TFWD=y’
 
-*   Styring foregår via et terminalprogram. 
-*	  Når brukeren sender kommandoen ‘INJECT X’ skal motorX kjøres i et visst antall millisekunder i forover retning
-* 	Når brukeren sender kommandoen ‘EJECT X’ skal motorX kjøres i et visst antall millisekunder i revers retning
-*   Parametere:
-    *   Hver motor kan ha et sett med parametere (alle er heltall):
-        *   Tid motoren kan kjøre i forover retning (i millisec, lovlig verdier er 0 - 3000): ‘TFWD’
-        *   Tid motoren kan kjøre i revers reting (i millisec, lovlig verdier er 0 - 3000): ‘TREV’
-        * 	Hastighet i forover retning (i%, lovlig verdier er 0 - 100): ‘SFWD’
-        * 	Hastiget i revers retning (i%, lovlig verdier er 0 - 100): ‘SREV’
-    *   Hver parameter skal kunne settes fra commandline. Syntax (med TFWD som eksempel):
-        *	  SETx TFWD=y  // Setter TFWD for motor X til y msec
-        *	  Hver parameter skal kunne leses fra cmdLine:
-        *	  GETx TWFD => Skal returnere ‘TFWD=y’
+## States
+* Evrey motor have 4 states. It can vary between ‘EJECTING’,  ‘INSERTING’, ‘EJECTED’,’INSERTED’.
+* When the user types string ‘STATEX’, will the application reply with the state motor X is in.
+* Application allways startes in state ‘EJECTED’.
 
-## Tilstander
-*	Hver motor skal ha en tilstand. Denne vil variere mellom ‘EJECTING’,  ‘INSERTING’, ‘EJECTED’,’INSERTED’
-*	Når brukeren sender strengen ‘STATEx’ så skal applikasjonen svare med den tilstanden motor X er i.
-*	Applikasjonen starter alltid i tilstand ‘EJECTED’
+## Retur values
+*	All commands which the application accepts will return ‘200 OK\r\n’.
+*	All commands which the application dows not accepts will return ‘400 Error\r\n\’.
 
-## Returverdier
-*	Alle kommandoer som applikasjonen forstår skal returnere ‘200 OK\r\n’
-*	Alle kommanoder som applikasjonen ikke forstår skal returnere ‘400 Error\r\n\’
-
-## Terminalen
-* Alt som skives til terminalen blir eccoet tilbake igjen
-* Backspace fungerer
-* Delete knappen sletter hele stringen.
+## Terminal
+* Evreything that is sendt to the terminal will be eccoed back.
+* Backspace works as inteneded.
+* The Delete-button deletes the current string.
 
 
-### Forutsetninger
-STK600 skal kobles til via USB, RS232 og Jtag(valgfritt, hvis en ønsker å debugge) 
-For å kunne bruke applikasjonen på STK600 og ATMEGA2560 må man gjøre noen forhåndsinstillinger. ATmega2560 trenger 5v og 8Mhz programerebar klokke, og instilles via
-ATMEL Studio 7 slik:
+### Prerequisites
+STK must be powered through the USB connection. For the application to work the UART connection though RS232 must be connected(Jtag is optional for debugging).
+In additon the user must change some settings on the STK600 to power the ATMEGA2560 and use the correct frequancy. ATmega2560 uses 5v og 8Mhz programable clock, and can be sett from ATMEL Studio 7:
 
 ```
-Last ned alle filene fra git.
+Download all files from git.
 ```
 ```
-Åpne prosjektet i Atmel studio
+Open the prosject in Atmel studio
 ```
 ```
-Tools-->Device Programmer-->Board settings
+Tools-->Device Programmer
 ```
 ```
-"SET Vtarget til 5v og clock generator til 8Mhz"
+From the pulldown meny select "STK600", Apply--->Read-->Board settings
+```
+```
+"SET Vtarget to 5v og clock generator to 8Mhz"
 ```
 ### Installing
-Her er en steg for steg serie av eksempler som skal forklare deg hvordan du kan få applikasjonen opp å gå.
-Ved å følge instruksjonene som bildene under ilustrerer kobler du opp LCD, Motorer og generelle sammenkoblinger på STK600. (SE DATABLAD FOR MER INFO)
+This is a step by step series of exsamples which will explain the user how to set up the application. By following the instructions, which the pictures bellow ilustrates, can the user connect the LCD, motor, and generel interconnections on the stk600(Datashhet for more information)
 #### LCD connections(Nokia5110):
 ![LCD connections](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/LCD_NOKIA.PNG)
-#### Samkoblinger(STK600):
+#### Interconnections(STK600):
 ![INTERCONNECTIONS connections](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/INTERCONNECTIONS.PNG)
-#### MOTORKONTROLL():
+#### MotorControll(BD6230F):
 ![MOTORKONTROLL](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/MOTOR.PNG)
-*  Sørg for at du har koblet opp alle jordkoblingene til felles jord
-*  Sørg for at STK600 er satt opp riktig(dette kan ses i databladet)
+*  Make sure that the there is a common connection to ground.
+*  Make sure that STK600 is preconnected correctly(Datasheet stk600)
 
 
 
-## Test programmet
-Sett DC Power supply til 25V.
+## Test the application
+Sett DC Power supply to 10-25V.(25 optimal)
 ```
-TRYKK PÅ SW5 INTILL NR PÅ LED REPRESENTERER RIKTIG MOTOR DU ØNSKER Å KJØRE
+PRESS SW5 UNTIL NUMBER ON THE LEDLIGHT REPRESENTATES THE RIGHT MOTOR THE USER WHATS TO RUN MANUALY.
 ```
 ```
-HOLD SW6 ELLER SW7 MOTOREN INTIL MOTOREN STÅR I RIKTIG POSISJON (EJECTED POSISJONEN)
+HOLD SW6 OR SW7 UNTIL THE MOTOREN IS MOVED TO THE CORRECT POSITON(EJECTED POSITION)
 ```
-Du er nå klar til å teste ut terminal delen av applikasjonen.
+The user is now ready to test the terminal application.
 
-Sett igang med å åpne TeraTerm eller et annet terminalprogram og skriv inn følgene og gjør de rette observasjoenen.
+Start with opening TreaTerm or any other terminal program. Whrite the following command and the the correct observations.
 ```
-INJECT "X"(X står for nr på motoren)
+INJECT "X"(X stands for the motor number )
 ```
-*Observer at Motoren rotoeren med klokken i 3 sekunder i middels til lav fart.
-*Observer på LCD skjermen at M"X" har blitt oppdatert til "INJECTED"
+*Observe that the motor rotates with the clock for 3seconds at a midium velocity.
+*Observe on the LCD screen that the state of MX has been updated to "INSERTED".
 
-Tast inn følgende komandoer i terminalen:
+For further testing type the following cmd:
 ```
 EJECT X
 STATE X
@@ -90,12 +90,11 @@ SETX SREV=80
 GETX SFWD
 GETX SREV
 ```
-Nå skal motoren rotere mot klokken og respondere med "EJECTED", SFWD=80, SREV=80. Som betyr at du har endret farten i forrover og bakover retning fra 50 til 80.
-observerer også at LCD skjermen har oppdatert seg.
+Now the motor should rotate aganst the clock and respond in the terminal window "EJECTED", SFWD=80, SREV=80. this means that the user has changed the speed of the motor in forward and revers motion from 50% to 80%. In additon the user can observe that the LCD has updated again.
 
 
 
-## Datablad
+## Datasheet
 *  [STK 600](http://ww1.microchip.com/downloads/en/DeviceDoc/40001904A.pdf)
 *  [ATMEGA 2560](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf)
 *  [DC Brush Motor Drivers(36VMax) BD623xxx Series](http://www.farnell.com/datasheets/2097985.pdf)
