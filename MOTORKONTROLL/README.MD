@@ -17,12 +17,12 @@ Her er en applikasjon som styrer tre motorer uavhengig av hverandre, mellom to f
 *	  Når brukeren sender kommandoen ‘INJECT X’ skal motorX kjøres i et visst antall millisekunder i forover retning
 * 	Når brukeren sender kommandoen ‘EJECT X’ skal motorX kjøres i et visst antall millisekunder i revers retning
 *   Parametere:
-    * 	Hver motor kan ha et sett med parametere (alle er heltall):
+    *   Hver motor kan ha et sett med parametere (alle er heltall):
         *   Tid motoren kan kjøre i forover retning (i millisec, lovlig verdier er 0 - 3000): ‘TFWD’
         *   Tid motoren kan kjøre i revers reting (i millisec, lovlig verdier er 0 - 3000): ‘TREV’
         * 	Hastighet i forover retning (i%, lovlig verdier er 0 - 100): ‘SFWD’
         * 	Hastiget i revers retning (i%, lovlig verdier er 0 - 100): ‘SREV’
-    *    Hver parameter skal kunne settes fra commandline. Syntax (med TFWD som eksempel):
+    *   Hver parameter skal kunne settes fra commandline. Syntax (med TFWD som eksempel):
         *	  SETx TFWD=y  // Setter TFWD for motor X til y msec
         *	  Hver parameter skal kunne leses fra cmdLine:
         *	  GETx TWFD => Skal returnere ‘TFWD=y’
@@ -62,9 +62,9 @@ Tools-->Device Programmer-->Board settings
 ### Installing
 Her er en steg for steg serie av eksempler som skal forklare deg hvordan du kan få applikasjonen opp å gå.
 Ved å følge instruksjonene som bildene under ilustrerer kobler du opp LCD, Motorer og generelle sammenkoblinger på STK600.
-![LCD connections](https://github.com/HenriknWold/WindowMote/blob/master/FSM_LCD/LCD_NOKIA.PNG)
-![LCD connections](https://github.com/HenriknWold/WindowMote/blob/master/FSM_LCD/INTERCONNECTIONS.PNG)
-![LCD connections](https://github.com/HenriknWold/WindowMote/blob/master/FSM_LCD/MOTOR.PNG)
+![LCD connections](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/LCD_NOKIA.PNG)
+![INTERCONNECTIONS connections](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/INTERCONNECTIONS.PNG)
+![MOTORKONTROLL](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/MOTOR.PNG)
 *  Sørg for at du har koblet opp alle jordkoblingene til felles jord
 *  Sørg for at STK600 er satt opp riktig(dette kan ses i databladet)
 
