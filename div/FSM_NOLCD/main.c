@@ -529,7 +529,7 @@ int USARTHasData()
 }
 void USARTWriteChar(char data)
 {
-	while (!(UCSR0A & (1 << UDRE0)))//fortsetter så lenge UDRE0 bit er på
+	while (!(UCSR0A & (1 << UDRE0)))//fortsetter sÃ¥ lenge UDRE0 bit er pÃ¥
 	{}
 
 	//Now write the data to USART buffer
