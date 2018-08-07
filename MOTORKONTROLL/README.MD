@@ -1,40 +1,40 @@
 # MOTORCONTROLL
-This is an application which can controll tre DC-motors individualy and change between to diffrent positions.
+This is an application which can control 3 DC-motors individually and change between to different positions.
 
 
 ## Getting Started
-*  This is a termainal program and all commands take effect through the terminal.
-*  When the user writes the command ‘INJECT X’ will motorX rotate in a forward direction in a spesific amount of milisec. 
-*  When the user writes the command ‘EJECT X’ will motorX rotate in a reverse direction in a spesific amount of milisec.
+*	This is a terminal program and all commands take effect through the terminal.
+*	When the user writes the command ‘INJECT X’ will motorX rotate in a forward direction in a specific amount of milisec.
+*	When the user writes the command ‘EJECT X’ will motorX rotate in a reverse direction in a specific amount of milisec.
 *   Parameters:
-    *   Evrey motor has a sett with parameters(all are integers):
-        *   Time the motor will run forward(in milisec, 0-3000): ‘TFWD’
+    *   Every motor has a set with parameters (all are integers):
+        *   Time the motor will run forward (in milisec, 0-3000): ‘TFWD’
         *   Time the motor will run reverse(in milisec, 0-3000): ‘TREV’
         * 	Speed in forward direction(in%,  0 - 100): ‘SFWD’
         * 	Speed in revese direction (in%,  0 - 100): ‘SREV’
-    *   Evrey parameter is customizeble in the commandline. Syntax(with TFWD as eksample):
+    *   Every parameter is customizable in the command line. Syntax (with TFWD as example):
         *	  SETx TFWD=y  // will set TFWD for motor X to y msec
-        *	  Evrey parameter is readable from the cmdLine:
+        *	  Every parameter is readable from the cmdLine:
         *	  GETx TWFD => Will return ‘TFWD=y’
 
 ## States
-* Evrey motor have 4 states. It can vary between ‘EJECTING’,  ‘INSERTING’, ‘EJECTED’,’INSERTED’.
+* Every motor have 4 states. It can vary between ‘EJECTING’,  ‘INSERTING’, ‘EJECTED’,’INSERTED’.
 * When the user types string ‘STATEX’, will the application reply with the state motor X is in.
-* Application allways startes in state ‘EJECTED’.
+* Application allways starts in state ‘EJECTED’.
 
 ## Retur values
 *	All commands which the application accepts will return ‘200 OK\r\n’.
 *	All commands which the application dows not accepts will return ‘400 Error\r\n\’.
 
 ## Terminal
-* Evreything that is sendt to the terminal will be eccoed back.
+* Evreything that is sendt to the terminal will be echoed back.
 * Backspace works as inteneded.
 * The Delete-button deletes the current string.
 
 
 ### Prerequisites
-STK must be powered through the USB connection. For the application to work the UART connection though RS232 must be connected(Jtag is optional for debugging).
-In additon the user must change some settings on the STK600 to power the ATMEGA2560 and use the correct frequancy. ATmega2560 uses 5v og 8Mhz programable clock, and can be sett from ATMEL Studio 7:
+STK600 must be powered through the USB connection. For the application to work the UART connection though RS232 must be connected(Jtag is optional for debugging).
+In additon the user must change settings on the STK600 to power the ATMEGA2560 and adjust the correct frequency. ATmega2560 uses 5v og 8Mhz programable clock, and can be sett from ATMEL Studio 7:
 
 ```
 Download all files from git.
@@ -52,8 +52,8 @@ From the pulldown meny select "STK600", Apply--->Read-->Board settings
 "SET Vtarget to 5v og clock generator to 8Mhz"
 ```
 ### Installing
-This is a step by step series of exsamples which will explain the user how to set up the application. By following the instructions, which the pictures bellow ilustrates, can the user connect the LCD, motor, and generel interconnections on the stk600(Datashhet for more information)
-#### LCD connections(Nokia5110):
+This is a step by step series of examples which will explain the user how to set up the application. By following the instructions, which the pictures bellow illustrates, can the user connect the LCD, motor, and general interconnections on the STK600(Datasheet for more information)
+#### LCD-STK600 connections(Nokia5110):
 ![LCD connections](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/LCD_NOKIA.PNG)
 #### Interconnections(STK600):
 ![INTERCONNECTIONS connections](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/INTERCONNECTIONS.PNG)
