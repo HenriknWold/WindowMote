@@ -57,7 +57,7 @@ Ved å følge instruksjonene som bildene under ilustrerer kobler du opp LCD, Mot
 ![LCD connections](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/LCD_NOKIA.PNG)
 #### Samkoblinger(STK600):
 ![INTERCONNECTIONS connections](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/INTERCONNECTIONS.PNG)
-#### MOTORKONTROLL(STK600):
+#### MOTORKONTROLL():
 ![MOTORKONTROLL](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/MOTOR.PNG)
 *  Sørg for at du har koblet opp alle jordkoblingene til felles jord
 *  Sørg for at STK600 er satt opp riktig(dette kan ses i databladet)
