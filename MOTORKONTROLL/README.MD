@@ -33,7 +33,7 @@ Her er en applikasjon som styrer tre motorer uavhengig av hverandre, mellom to f
 * Delete knappen sletter hele stringen.
 
 
-### Prerequisites
+### Forutsetninger
 STK600 skal kobles til via USB, RS232 og Jtag(valgfritt, hvis en ønsker å debugge) 
 For å kunne bruke applikasjonen på STK600 og ATMEGA2560 må man gjøre noen forhåndsinstillinger. ATmega2560 trenger 5v og 8Mhz programerebar klokke, og instilles via
 ATMEL Studio 7 slik:
@@ -52,9 +52,12 @@ Tools-->Device Programmer-->Board settings
 ```
 ### Installing
 Her er en steg for steg serie av eksempler som skal forklare deg hvordan du kan få applikasjonen opp å gå.
-Ved å følge instruksjonene som bildene under ilustrerer kobler du opp LCD, Motorer og generelle sammenkoblinger på STK600.
+Ved å følge instruksjonene som bildene under ilustrerer kobler du opp LCD, Motorer og generelle sammenkoblinger på STK600. (SE DATABLAD FOR MER INFO)
+#### LCD connections(Nokia5110):
 ![LCD connections](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/LCD_NOKIA.PNG)
+#### Samkoblinger(STK600):
 ![INTERCONNECTIONS connections](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/INTERCONNECTIONS.PNG)
+#### MOTORKONTROLL(STK600):
 ![MOTORKONTROLL](https://github.com/HenriknWold/WindowMote/blob/master/MOTORKONTROLL/MOTOR.PNG)
 *  Sørg for at du har koblet opp alle jordkoblingene til felles jord
 *  Sørg for at STK600 er satt opp riktig(dette kan ses i databladet)
